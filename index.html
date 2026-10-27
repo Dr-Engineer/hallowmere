@@ -12,7 +12,7 @@
   --void:#06070a;
   --bone:#e4dbc8;
   --ash:#8f8b80;
-  --ember:#dd7a2c;
+  --ember:#b4916a;
   --blood:#a3261a;
   --paper:#d9ceb2;
   --ink:#1e1a14;
@@ -36,7 +36,7 @@ button:focus-visible{outline:2px solid var(--ember);outline-offset:3px}
 
 /* ---------- HUD ---------- */
 #hud{position:fixed;inset:0;pointer-events:none}
-#hud .hbtn{pointer-events:auto;position:absolute;width:48px;height:48px;border-radius:50%;
+#hud .hbtn{pointer-events:auto;position:absolute;opacity:.6;width:48px;height:48px;border-radius:50%;
   display:grid;place-items:center;background:var(--glass);border:1px solid var(--line);
   -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 #hud .hbtn svg{width:22px;height:22px;stroke:var(--bone);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
@@ -44,9 +44,9 @@ button:focus-visible{outline:2px solid var(--ember);outline-offset:3px}
 #btnLight{top:calc(env(safe-area-inset-top,0px) + 14px);right:calc(env(safe-area-inset-right,0px) + 14px)}
 #btnLight.off svg{stroke:var(--ash)}
 #btnLight.off{opacity:.7}
-#btnUse{width:76px!important;height:76px!important;bottom:calc(env(safe-area-inset-bottom,0px) + 28px);right:calc(env(safe-area-inset-right,0px) + 24px);opacity:.45;transition:opacity .2s,border-color .2s,box-shadow .2s}
+#btnUse{width:76px!important;height:76px!important;bottom:calc(env(safe-area-inset-bottom,0px) + 28px);right:calc(env(safe-area-inset-right,0px) + 24px);opacity:.22;transition:opacity .2s,border-color .2s,box-shadow .2s}
 #btnUse svg{width:30px!important;height:30px!important}
-#btnUse.ready{opacity:1;border-color:var(--ember);box-shadow:0 0 22px rgba(221,122,44,.35)}
+#btnUse.ready{opacity:1;border-color:var(--ember);box-shadow:0 0 22px rgba(180,145,106,.25)}
 #btnUse.ready svg{stroke:var(--ember)}
 #objective{position:absolute;top:calc(env(safe-area-inset-top,0px) + 16px);left:calc(env(safe-area-inset-left,0px) + 74px);right:calc(env(safe-area-inset-right,0px) + 74px);
   display:flex;flex-direction:column;gap:2px;transition:opacity 1.2s;opacity:0}
@@ -132,7 +132,7 @@ h2{font-family:var(--f-display);font-weight:400;font-size:var(--s3);line-height:
 .row input[type=range]{width:min(200px,45vw);accent-color:var(--ember)}
 .tog{width:46px;height:26px;border-radius:14px;border:1px solid var(--line);position:relative;background:rgba(228,219,200,.08);flex:none}
 .tog::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:var(--ash);transition:transform .2s,background .2s}
-.tog[aria-pressed=true]{background:rgba(221,122,44,.25);border-color:var(--ember)}
+.tog[aria-pressed=true]{background:rgba(180,145,106,.22);border-color:var(--ember)}
 .tog[aria-pressed=true]::after{transform:translateX(20px);background:var(--ember)}
 #loading{font-family:var(--f-type);font-size:var(--s-1);letter-spacing:.2em;color:var(--ash)}
 .warn a{color:var(--ember);font-family:var(--f-display);letter-spacing:.08em;white-space:nowrap}
@@ -216,7 +216,7 @@ h2{font-family:var(--f-display);font-weight:400;font-size:var(--s3);line-height:
     <div class="aside">
     <div class="controls">
       <div><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><circle cx="16" cy="12" r="4.5"/><path d="M16 4v3M16 25v3"/></svg><b>Left thumb</b>Walk. Push to the edge to run.</div>
-      <div><svg viewBox="0 0 32 32"><rect x="10" y="5" width="12" height="22" rx="2.5"/><path d="M5 11c-2 3-2 7 0 10M27 11c2 3 2 7 0 10"/><path d="M15 23h2"/></svg><b>Tilt phone</b>Look around. Drag the right side to turn.</div>
+      <div><svg viewBox="0 0 32 32"><rect x="10" y="5" width="12" height="22" rx="2.5"/><path d="M5 11c-2 3-2 7 0 10M27 11c2 3 2 7 0 10"/><path d="M15 23h2"/></svg><b>Move phone</b>Look around. Drag the right side to turn.</div>
       <div><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11"/><path d="M12 17.5V11a1.6 1.6 0 0 1 3.2 0v4.5M15.2 15v-5a1.6 1.6 0 0 1 3.2 0v6"/><path d="M18.4 15.5a1.6 1.6 0 0 1 3.2 0v1.8a6 6 0 0 1-6 6h-.4a5 5 0 0 1-4-2l-2-2.7"/></svg><b>Hand button</b>Open, read, take.</div>
     </div>
     <div class="settings">
@@ -225,7 +225,7 @@ h2{font-family:var(--f-display);font-weight:400;font-size:var(--s3);line-height:
       <div class="row"><label for="rgSens">Drag sensitivity</label><input type="range" id="rgSens" min="0.4" max="2" step="0.05" value="1"></div>
       <div class="row"><label for="rgBright">Brightness</label><input type="range" id="rgBright" min="0.6" max="1.8" step="0.05" value="1"></div>
     </div>
-    <p class="fine" id="fineprint">Headphones on, lights off. Hold the phone upright, the way you would film something.</p>
+    <p class="fine" id="fineprint">Headphones on, lights off. Hold your phone at whatever angle is comfortable. The view levels itself, and a double-tap on the right side re-levels it.</p>
     </div>
   </div>
 </section>
@@ -236,13 +236,14 @@ h2{font-family:var(--f-display);font-weight:400;font-size:var(--s3);line-height:
     <h2 id="pauseObj">—</h2>
     <div class="menu">
       <button class="mbtn primary" id="btnResume">Resume <span class="arw">→</span></button>
-      <button class="mbtn" id="btnRecenter">Recenter view <small>hold the phone how you play, then tap</small></button>
+      <button class="mbtn" id="btnRecenter">Level the view <small>or double-tap the right side while playing</small></button>
       <button class="mbtn" id="btnRestartCp">Restart from checkpoint</button>
       <button class="mbtn" id="btnQuit">Leave to title</button>
     </div>
     <div class="settings">
       <div class="row"><label for="tgGyro2">Motion look</label><button class="tog" id="tgGyro2" aria-pressed="true" aria-label="Motion look"></button></div>
       <p class="warn motionNote" hidden><span class="why"></span> <a class="openSafari" href="#" target="_blank" rel="noopener" hidden>Open in Safari →</a></p>
+      <div class="row"><label for="tgLevel">Auto-level view</label><button class="tog" id="tgLevel" aria-pressed="true" aria-label="Auto-level view"></button></div>
       <div class="row"><label for="rgSens2">Drag sensitivity</label><input type="range" id="rgSens2" min="0.4" max="2" step="0.05" value="1"></div>
       <div class="row"><label for="rgBright2">Brightness</label><input type="range" id="rgBright2" min="0.6" max="1.8" step="0.05" value="1"></div>
       <div class="row"><label for="rgVol">Volume</label><input type="range" id="rgVol" min="0" max="1.4" step="0.05" value="1"></div>
@@ -321,7 +322,7 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* storage unavailable */ } },
 };
 
-const SETTINGS = Object.assign({ gyro: true, sens: 1, bright: 1, vol: 1 }, store.get('hallowmere.settings') || {});
+const SETTINGS = Object.assign({ gyro: true, autoLevel: true, sens: 1, bright: 1, vol: 1 }, store.get('hallowmere.settings') || {});
 function saveSettings() { store.set('hallowmere.settings', SETTINGS); }
 
 /* ---------- Renderer ---------- */
@@ -358,16 +359,45 @@ const rt = new T.WebGLRenderTarget(4, 4, {
 const postU = {
   tScene: { value: rt.texture }, uTime: { value: 0 }, uGrain: { value: 0.055 }, uVig: { value: 0 },
   uCA: { value: 0 }, uDistort: { value: 0 }, uFlash: { value: 0 }, uRed: { value: 0 }, uFrost: { value: 0 },
-  uGlitch: { value: 0 }, uBlack: { value: 0 }, uExposure: { value: 1.0 }, uFear: { value: 0 }, uSat: { value: 0.8 },
+  uGlitch: { value: 0 }, uBlack: { value: 0 }, uExposure: { value: 1.0 }, uFear: { value: 0 }, uSat: { value: 0.62 },
   uRes: { value: new T.Vector2(1, 1) }, uTint: { value: new T.Vector3(1, 1, 1) },
+  tBloom: { value: null }, uBloom: { value: 0.55 },
 };
+/* bloom: bright pass at quarter resolution, separable blur, added before tone mapping */
+const bloomOpts = { type: hdrOK ? T.HalfFloatType : T.UnsignedByteType, depthBuffer: false, stencilBuffer: false };
+const bloomA = new T.WebGLRenderTarget(4, 4, bloomOpts), bloomB = new T.WebGLRenderTarget(4, 4, bloomOpts);
+const quadVS = `varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }`;
+const brightMat = new T.ShaderMaterial({
+  uniforms: { tSrc: { value: rt.texture }, uTexel: { value: new T.Vector2() }, uThresh: { value: hdrOK ? 0.85 : 0.6 } },
+  depthTest: false, depthWrite: false, vertexShader: quadVS,
+  fragmentShader: `uniform sampler2D tSrc; uniform vec2 uTexel; uniform float uThresh; varying vec2 vUv;
+    void main(){
+      vec3 c = texture2D(tSrc, vUv + uTexel * vec2(-1.0, -1.0)).rgb + texture2D(tSrc, vUv + uTexel * vec2(1.0, -1.0)).rgb
+             + texture2D(tSrc, vUv + uTexel * vec2(-1.0, 1.0)).rgb + texture2D(tSrc, vUv + uTexel * vec2(1.0, 1.0)).rgb;
+      c *= 0.25;
+      float l = max(c.r, max(c.g, c.b));
+      gl_FragColor = vec4(c * smoothstep(uThresh, uThresh * 1.8 + 0.15, l), 1.0);
+    }`,
+});
+const blurMat = new T.ShaderMaterial({
+  uniforms: { tSrc: { value: null }, uDir: { value: new T.Vector2() } },
+  depthTest: false, depthWrite: false, vertexShader: quadVS,
+  fragmentShader: `uniform sampler2D tSrc; uniform vec2 uDir; varying vec2 vUv;
+    void main(){
+      vec3 s = texture2D(tSrc, vUv).rgb * 0.227;
+      s += (texture2D(tSrc, vUv + uDir * 1.385).rgb + texture2D(tSrc, vUv - uDir * 1.385).rgb) * 0.316;
+      s += (texture2D(tSrc, vUv + uDir * 3.231).rgb + texture2D(tSrc, vUv - uDir * 3.231).rgb) * 0.070;
+      gl_FragColor = vec4(s, 1.0);
+    }`,
+});
+postU.tBloom.value = bloomA.texture;
 const postMat = new T.ShaderMaterial({
   uniforms: postU,
   depthTest: false, depthWrite: false,
   vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }`,
   fragmentShader: `
     precision highp float;
-    uniform sampler2D tScene; uniform float uTime,uGrain,uVig,uCA,uDistort,uFlash,uRed,uFrost,uGlitch,uBlack,uExposure,uFear,uSat;
+    uniform sampler2D tScene; uniform sampler2D tBloom; uniform float uBloom; uniform float uTime,uGrain,uVig,uCA,uDistort,uFlash,uRed,uFrost,uGlitch,uBlack,uExposure,uFear,uSat;
     uniform vec2 uRes; uniform vec3 uTint;
     varying vec2 vUv;
     float h12(vec2 p){ vec3 p3 = fract(vec3(p.xyx) * .1031); p3 += dot(p3, p3.yzx + 33.33); return fract((p3.x + p3.y) * p3.z); }
@@ -387,12 +417,15 @@ const postMat = new T.ShaderMaterial({
       col.r = texture2D(tScene, uv + off).r;
       col.g = texture2D(tScene, uv).g;
       col.b = texture2D(tScene, uv - off).b;
+      col += texture2D(tBloom, uv).rgb * uBloom;
       col *= uExposure * uTint;
-      col = aces(col * 1.35);
+      col = aces(col * 1.3);
       col = pow(col, vec3(1.0 / 2.2));
       float l = dot(col, vec3(0.299, 0.587, 0.114));
       col = mix(vec3(l), col, uSat);
-      col = mix(col, col * vec3(0.86, 0.97, 1.08), clamp(1.0 - l * 2.2, 0.0, 1.0) * 0.6);
+      col *= mix(vec3(0.84, 0.97, 0.95), vec3(1.05, 1.0, 0.93), smoothstep(0.04, 0.55, l));
+      col = mix(col, col * col * (3.0 - 2.0 * col), 0.22);
+      col = max(col, vec3(0.012, 0.014, 0.016));
       float vig = smoothstep(0.95 + uVig * 0.1, 0.18 - uVig * 0.25, length(cc * vec2(1.0, 1.15)) * (1.0 + uVig * 0.9 + uFear * 0.35));
       col *= mix(0.25, 1.0, vig);
       col = mix(col, vec3(0.42, 0.02, 0.01) * (0.4 + l), clamp(uRed * (0.35 + r2 * 2.0), 0.0, 1.0));
@@ -428,6 +461,8 @@ function resize() {
   camera.updateProjectionMatrix();
   const bw = Math.max(2, Math.floor(w * dpr)), bh = Math.max(2, Math.floor(h * dpr));
   rt.setSize(bw, bh);
+  const qw = Math.max(2, bw >> 2), qh = Math.max(2, bh >> 2);
+  bloomA.setSize(qw, qh); bloomB.setSize(qw, qh); brightMat.uniforms.uTexel.value.set(1 / bw, 1 / bh); G_bloomTexel.set(1 / qw, 1 / qh);
   postU.uRes.value.set(bw, bh);
   fx2d.width = Math.floor(w * Math.min(window.devicePixelRatio || 1, 2));
   fx2d.height = Math.floor(h * Math.min(window.devicePixelRatio || 1, 2));
@@ -449,11 +484,15 @@ function perfTick(dt) {
   }
 }
 
+const G_bloomTexel = new T.Vector2(0.01, 0.01);
+function blit(mat, target) { postQuad.material = mat; renderer.setRenderTarget(target); renderer.render(postScene, postCam); }
 function renderFrame() {
   renderer.setRenderTarget(rt);
   renderer.render(scene, camera);
-  renderer.setRenderTarget(null);
-  renderer.render(postScene, postCam);
+  blit(brightMat, bloomA);
+  blurMat.uniforms.tSrc.value = bloomA.texture; blurMat.uniforms.uDir.value.set(G_bloomTexel.x * 1.2, 0); blit(blurMat, bloomB);
+  blurMat.uniforms.tSrc.value = bloomB.texture; blurMat.uniforms.uDir.value.set(0, G_bloomTexel.y * 1.2); blit(blurMat, bloomA);
+  blit(postMat, null);
 }
 
 /* ---------- game-time waits (for scripted sequences) ---------- */
@@ -478,9 +517,9 @@ const AU = {
     const AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) return;
     const c = (this.ctx = new AC());
-    this.master = c.createGain(); this.master.gain.value = SETTINGS.vol;
+    this.master = c.createGain(); this.master.gain.value = 0.55 * SETTINGS.vol;
     const comp = c.createDynamicsCompressor();
-    comp.threshold.value = -16; comp.knee.value = 8; comp.ratio.value = 5; comp.attack.value = 0.002; comp.release.value = 0.3;
+    comp.threshold.value = -22; comp.knee.value = 12; comp.ratio.value = 6; comp.attack.value = 0.002; comp.release.value = 0.3;
     this.master.connect(comp); comp.connect(c.destination);
     this.verb = c.createConvolver(); this.verb.buffer = this.makeIR(3.2, 2.4);
     this.verbOut = c.createGain(); this.verbOut.gain.value = 0.55;
@@ -534,7 +573,7 @@ const AU = {
   /* output node: optional 3D position, reverb send */
   out(pos, verb = 0.25, gain = 1, dest) {
     const c = this.ctx, g = c.createGain();
-    g.gain.value = gain;
+    g.gain.value = gain * (this.soft || 1);
     let head = g;
     if (pos) { const p = this.panner(pos); g.connect(p); head = p; g._p = p; }
     head.connect(dest || this.sfx);
@@ -570,7 +609,7 @@ const AU = {
     } else {
       this.chain(this.nsrc(t, 0.14), this.filt('lowpass', rand(600, 900), 1), this.vca(t, 0.004, 0.55, 0.09), o);
       const s = this.osc('sine', rand(80, 100), t, 0.12); s.frequency.exponentialRampToValueAtTime(48, t + 0.1); this.chain(s, this.vca(t, 0.003, 0.4, 0.09), o);
-      if (surface === 'wood' && chance(0.09)) this.creak(pos, rand(0.25, 0.5), rand(0.8, 1.3), 0.35);
+      if (surface === 'wood' && chance(0.035)) this.creak(pos, rand(0.25, 0.5), rand(0.8, 1.3), 0.18);
     }
   },
   creak(pos, dur = 0.8, pitch = 1, vol = 0.6) {
@@ -591,6 +630,7 @@ const AU = {
   },
   doorSlam(pos, vol = 1) {
     if (!this.ok) return;
+    vol *= 0.6;
     const t = this.t, o = this.out(pos, 0.7, vol);
     this.chain(this.nsrc(t, 0.7), this.filt('lowpass', 650, 0.8), this.vca(t, 0.003, 1.0, 0.5), o);
     const s = this.osc('sine', 62, t, 0.6); s.frequency.exponentialRampToValueAtTime(32, t + 0.45); this.chain(s, this.vca(t, 0.002, 1.0, 0.45), o);
@@ -625,6 +665,7 @@ const AU = {
   },
   stinger(power = 1, kind = 'big') {
     if (!this.ok) return;
+    power *= 0.6;
     const t = this.t, c = this.ctx;
     const o = this.out(null, 0.45, power);
     const sh = this.makeShaper(kind === 'big' ? 60 : 20); sh.connect(o);
@@ -647,6 +688,7 @@ const AU = {
   },
   scream(pos, dur = 1.3, vol = 0.9) {
     if (!this.ok) return;
+    vol *= 0.65;
     const t = this.t, c = this.ctx, o = this.out(pos, 0.5, vol);
     const f0 = rand(620, 820), s = this.osc('sawtooth', f0 * 0.75, t, dur);
     s.frequency.exponentialRampToValueAtTime(f0 * 1.28, t + 0.22);
@@ -714,7 +756,7 @@ const AU = {
   },
   laughBot(pos) {
     if (!this.ok) return;
-    const t = this.t, o = this.out(pos, 0.3, 0.8);
+    const t = this.t, o = this.out(pos, 0.3, 0.45);
     const s = this.osc('square', 190, t, 1.9); s.frequency.linearRampToValueAtTime(115, t + 1.8);
     const g = this.ctx.createGain(); g.gain.setValueAtTime(0.0001, t);
     for (let i = 0; i < 9; i++) { const tt = t + i * 0.19; g.gain.linearRampToValueAtTime(0.5, tt + 0.03); g.gain.linearRampToValueAtTime(0.02, tt + 0.15); }
@@ -835,7 +877,7 @@ const AU = {
     if (!this.ok || !this.organBus) return;
     this.organMode = mode;
     const t = this.t;
-    this.organBus.gain.setTargetAtTime(mode === 'off' ? 0.0001 : mode === 'warped' ? 0.55 : 0.38, t, mode === 'off' ? 0.05 : 0.4);
+    this.organBus.gain.setTargetAtTime(mode === 'off' ? 0.0001 : mode === 'warped' ? 0.16 : 0.11, t, mode === 'off' ? 0.05 : 0.6);
     this.organWowG.gain.setTargetAtTime(mode === 'warped' ? 45 : 0, t, 0.2);
     if (mode !== 'off') { this.organIdx = 0; this.organNext = t + 0.3; }
   },
@@ -887,11 +929,11 @@ const AU = {
     if (t > this.windNext) {
       this.windNext = t + rand(1.5, 4);
       this.windF.frequency.setTargetAtTime(outdoor ? rand(300, 800) : rand(160, 320), t, 1.2);
-      this.windG.gain.setTargetAtTime((outdoor ? rand(0.12, 0.32) : rand(0.03, 0.09)), t, 1.4);
+      this.windG.gain.setTargetAtTime((outdoor ? rand(0.05, 0.14) : rand(0.012, 0.035)), t, 2.5);
     }
-    this.droneG.gain.setTargetAtTime(inside ? 0.035 + tension * 0.06 : 0.015, t, 1.5);
-    this.tenseG.gain.setTargetAtTime(tension > 0.35 ? (tension - 0.35) * 0.018 : 0, t, 1.2);
-    this.rumG.gain.setTargetAtTime(inside ? 0.12 + tension * 0.25 : 0.05, t, 2);
+    this.droneG.gain.setTargetAtTime(inside ? 0.018 + tension * 0.03 : 0.008, t, 3);
+    this.tenseG.gain.setTargetAtTime(tension > 0.45 ? (tension - 0.45) * 0.007 : 0, t, 3);
+    this.rumG.gain.setTargetAtTime(inside ? 0.05 + tension * 0.1 : 0.025, t, 3);
   },
   loop(name, pos, kind) {
     if (!this.ok) return null;
@@ -1417,12 +1459,12 @@ function paintPhoto(seed) {
 }
 function paintMask(kind) {
   const c = mkCanvas(128, 128), x = c.getContext('2d');
-  const base = { witch: '#4f6b34', zombie: '#6b7562', devil: '#7a1d16', clown: '#d8d2c4', skull: '#cfc6b0' }[kind];
+  const base = { witch: '#3e4536', zombie: '#565c50', devil: '#4a2622', clown: '#aaa496', skull: '#9c947f' }[kind];
   x.fillStyle = base; x.fillRect(0, 0, 128, 128);
   blotches(x, 128, 128, 14, [0, 0, 0], 6, 30, 0.1, 0.35);
   x.fillStyle = '#0b0807';
   for (const ex of [44, 84]) { x.beginPath(); x.ellipse(ex, 56, kind === 'skull' ? 12 : 9, kind === 'skull' ? 13 : 6, 0, 0, TAU); x.fill(); }
-  x.beginPath(); if (kind === 'clown') { x.fillStyle = '#a3261a'; x.arc(64, 72, 8, 0, TAU); x.fill(); x.fillStyle = '#7a1010'; x.beginPath(); x.moveTo(36, 92); x.quadraticCurveTo(64, 118, 92, 92); x.quadraticCurveTo(64, 104, 36, 92); x.fill(); }
+  x.beginPath(); if (kind === 'clown') { x.fillStyle = '#5e2a22'; x.arc(64, 72, 8, 0, TAU); x.fill(); x.fillStyle = '#4a1c18'; x.beginPath(); x.moveTo(36, 92); x.quadraticCurveTo(64, 118, 92, 92); x.quadraticCurveTo(64, 104, 36, 92); x.fill(); }
   else { x.fillStyle = '#0b0807'; x.ellipse(64, 96, kind === 'devil' ? 24 : 14, kind === 'zombie' ? 12 : 6, 0, 0, TAU); x.fill(); }
   return texFrom(c);
 }
@@ -1621,12 +1663,13 @@ function buildMaterials() {
   MAT.iron = stdMat({ color: 0x0c0c0e, metalness: 0.6, roughness: 0.55 });
   MAT.metal = stdMat({ color: 0x3a3c40, metalness: 0.5, roughness: 0.5 });
   MAT.brass = stdMat({ color: 0x8c6a2c, metalness: 0.85, roughness: 0.35 });
-  MAT.cloth = stdMat({ map: TX.cloth, roughness: 1 });
+  MAT.cloth = stdMat({ map: TX.cloth, color: 0x8c877d, roughness: 1 });
   MAT.blackCloth = stdMat({ color: 0x141214, roughness: 1 });
-  MAT.plastic = stdMat({ color: 0xd2ccc2, roughness: 0.38 });
-  MAT.bone = stdMat({ color: 0xcfc2a0, roughness: 0.6 });
-  MAT.porcelain = stdMat({ color: 0xd9d5ca, roughness: 0.22 });
+  MAT.plastic = stdMat({ color: 0x9d978b, roughness: 0.5 });
+  MAT.bone = stdMat({ color: 0x8f846e, roughness: 0.75 });
+  MAT.porcelain = stdMat({ color: 0xa8a49a, roughness: 0.3 });
   MAT.wax = stdMat({ color: 0xe6dcc0, roughness: 0.5, emissive: 0x2a1a08 });
+  MAT.gstone = stdMat({ map: plS.map, bumpMap: plS.bump, bumpScale: 0.06, color: 0x75746e, roughness: 0.95 });
   MAT.stone = stdMat({ map: brD.map, color: 0x9a9a96, roughness: 0.95 });
   MAT.foam = stdMat({ color: 0x6e6c68, roughness: 1 });
   MAT.black = new T.MeshBasicMaterial({ color: 0x000000 });
@@ -1637,7 +1680,7 @@ function buildMaterials() {
   MAT.plaid = stdMat({ map: TX.rug, color: 0x7a4030, roughness: 1 });
   MAT.rugMat = stdMat({ map: TX.rug, roughness: 1 });
   MAT.shingle = stdMat({ map: sid.map, color: 0x2a2624, roughness: 0.9 });
-  MAT.pumpkin = stdMat({ map: TX.pumpkin.map, emissiveMap: TX.pumpkin.emissive, emissive: 0xff8a1c, emissiveIntensity: 1.6, roughness: 0.7 });
+  MAT.pumpkin = stdMat({ map: TX.pumpkin.map, color: 0x8a6a58, emissiveMap: TX.pumpkin.emissive, emissive: 0xff8a3a, emissiveIntensity: 0.7, roughness: 0.8 });
   MAT.stem = stdMat({ color: 0x3a3a1c, roughness: 1 });
   MAT.flame = new T.MeshBasicMaterial({ color: 0xffb35a, transparent: true, opacity: 0.95, blending: T.AdditiveBlending, depthWrite: false, fog: false });
   MAT.web = new T.MeshBasicMaterial({ map: TX.web, transparent: true, opacity: 0.5, side: T.DoubleSide, depthWrite: false });
@@ -1653,7 +1696,7 @@ function buildMaterials() {
   MAT.paper = stdMat({ map: TX.paper, roughness: 0.9, emissive: 0x1a1810, side: T.DoubleSide });
   MAT.paperOld = stdMat({ map: TX.paperOld, roughness: 0.9, emissive: 0x1a1408, side: T.DoubleSide });
   MAT.clock = stdMat({ map: TX.clock, roughness: 0.4 });
-  MAT.mq = stdMat({ map: TX.mq, roughness: 0.38 });
+  MAT.mq = stdMat({ map: TX.mq, color: 0xa39d91, roughness: 0.5 });
   MAT.gold = stdMat({ color: 0xc8a040, metalness: 0.9, roughness: 0.25, emissive: 0x2a1a00 });
   MAT.puddle = stdMat({ color: 0x050607, roughness: 0.05, metalness: 0.3, transparent: true, opacity: 0.8 });
   MAT.rubber = stdMat({ color: 0xb08a80, roughness: 0.6 });
@@ -1900,7 +1943,7 @@ function buildWorld() {
   sil.position.set(7.5, 4.75, 19.02); sil.visible = false; REGION.yard.add(sil); W.dyn.winSil = sil;
   const silHead = new T.Mesh(new T.CircleGeometry(0.13, 12), sil.material); silHead.position.set(0, 0.62, 0); sil.add(silHead);
   // banner
-  plane(8.4, 0.9, signMat(textTex([['HALLOWMERE HOUSE', 66], ['A SPIRIT SCARE CO. ATTRACTION  ·  OPENING NIGHT  ·  ENTER IF YOU DARE', 22, "'Special Elite', monospace"]], { w: 1024, h: 128, bg: '#0b0a09', color: '#e0782a', grime: 20, pad: 0.4, wear: 300 })), 14.5, 4.05, 19.04);
+  plane(8.4, 0.9, signMat(textTex([['HALLOWMERE HOUSE', 66], ['A SPIRIT SCARE CO. ATTRACTION  ·  OCTOBER 31', 22, "'Special Elite', monospace"]], { w: 1024, h: 128, bg: '#0b0a09', color: '#a89c84', grime: 40, pad: 0.4, wear: 900 })), 14.5, 4.05, 19.04);
   // porch
   sbox2('darkWood', 9.8, 3.0, 19.0, 19.2, 3.18, 21.35);
   for (const px of [10.15, 12.7, 16.3, 18.85]) { scyl('wood', 0.08, 0.1, 3.0, 10, px, 1.5, 21.05); collider(px - 0.12, 20.93, px + 0.12, 21.17); }
@@ -1923,26 +1966,23 @@ function buildWorld() {
     addLight(lx, 2.3, 19.4, 0xffb060, 0.7, 5, 'bulb', 'spirit', [MAT.warmBulb]);
   }
   // pumpkins
-  for (const pz of [23, 26.5, 30, 33.5]) {
-    pumpkin(12.55, 0, pz, Math.PI / 2, rand(0.85, 1.15)); addLight(12.75, 0.35, pz, 0xff7a1a, 0.75, 3.5, 'candle', 'yard');
-    pumpkin(16.45, 0, pz + 1.2, -Math.PI / 2, rand(0.85, 1.15)); addLight(16.25, 0.35, pz + 1.2, 0xff7a1a, 0.75, 3.5, 'candle', 'yard');
-  }
-  pumpkin(12.0, 0, 20.6, 0.3, 1.2); pumpkin(17.0, 0, 20.6, -0.3, 1.1); addLight(14.5, 0.4, 20.8, 0xff7a1a, 0.7, 4, 'candle', 'yard');
-  pumpkin(14.05, 1.62, 38.4, 0, 0.8); pumpkin(15.95, 1.62, 38.4, 0, 0.8);
+  pumpkin(12.55, 0, 25.5, Math.PI / 2, 0.9); addLight(12.75, 0.35, 25.5, 0xff8a3a, 0.4, 3, 'candle', 'yard');
+  pumpkin(16.45, 0, 31.5, -Math.PI / 2, 1.0); addLight(16.25, 0.35, 31.5, 0xff8a3a, 0.4, 3, 'candle', 'yard');
+  pumpkin(12.0, 0, 20.6, 0.3, 1.2); pumpkin(17.0, 0, 20.6, -0.3, 1.1); addLight(14.5, 0.4, 20.8, 0xff8a3a, 0.45, 4, 'candle', 'yard');
   // tombstones (props)
-  const stones = [[5, 25.5, ['R.I.P.', 'I. M. DEAD']], [8, 28.5, ['HERE LIES', 'BARRY D. ALIVE']], [4.5, 32, ['REST IN', 'PIECES']], [9.5, 34.5, ['R.I.P.', 'PAUL TERGEIST']], [21, 26, ['HERE LIES', 'ANITA BREAK']], [24.5, 29.5, ['R.I.P.', 'THE OFF-SEASON']], [20.5, 33.8, ['R.I.P.', 'U. R. NEXT']], [25.6, 24.2, ['AGNES HALLOW', '1897 – 1931']]];
+  const stones = [[5, 25.5, ['THOMAS HALLOW', '1838 – 1891']], [8, 28.5, ['MARY', 'BELOVED WIFE']], [4.5, 32, ['INFANT', '1874']], [9.5, 34.5, ['J. H.', '1862 – 1879']], [21, 26, ['ELIZA HALLOW', '1841 – 1902']], [24.5, 29.5, ['ASLEEP', 'IN THE LORD']], [20.5, 33.8, ['W. HALLOW', '1866 – 1918']], [25.6, 24.2, ['AGNES', '1897 –']]];
   stones.forEach(([x, z, lines], i) => {
     const tilt = rand(-0.12, 0.12), ry = rand(-0.25, 0.25) + (x > 14 ? -0.3 : 0.3);
-    sbox('foam', 0.64, 0.72, 0.14, x, 0.36, z, ry, tilt); scyl('foam', 0.32, 0.32, 0.14, 12, x, 0.72, z, Math.PI / 2 + tilt * 0, ry, 0);
-    const p = plane(0.56, 0.56, signMat(textTex([[lines[0], 34], [lines[1], 30]], { w: 256, h: 256, color: 'rgba(25,22,20,0.85)', pad: 1.8 })), 0, 0, 0, ry);
+    sbox('gstone', 0.64, 0.72, 0.14, x, 0.36, z, ry, tilt); scyl('gstone', 0.32, 0.32, 0.14, 12, x, 0.72, z, Math.PI / 2 + tilt * 0, ry, 0);
+    const p = plane(0.56, 0.56, signMat(textTex([[lines[0], 30], [lines[1], 26]], { w: 256, h: 256, color: 'rgba(20,19,17,0.55)', pad: 1.8, wear: 900 })), 0, 0, 0, ry);
     p.position.set(x + Math.sin(ry) * 0.075, 0.55, z + Math.cos(ry) * 0.075); p.rotation.set(tilt, ry, 0, 'YXZ');
     collider(x - 0.35, z - 0.15, x + 0.35, z + 0.15);
   });
   // ticket booth
   sbox2('darkWood', 18.4, 0, 30.5, 20.0, 1.0, 31.9); sbox2('darkWood', 18.4, 1.0, 30.5, 20.0, 2.3, 30.62); sbox2('darkWood', 18.4, 1.0, 31.78, 20.0, 2.3, 31.9); sbox2('darkWood', 19.88, 1.0, 30.5, 20.0, 2.3, 31.9);
   sbox2('darkWood', 18.3, 2.3, 30.4, 20.1, 2.45, 32.0); sbox2('wood', 18.15, 0.98, 30.55, 18.45, 1.04, 31.85);
-  plane(1.7, 0.45, signMat(textTex([['TICKETS', 70], ['SPIRIT SCARE CO.', 22, "'Special Elite', monospace"]], { w: 512, h: 140, bg: '#e0782a', color: '#140c06', pad: 0.3, wear: 500 })), 18.27, 2.0, 31.2, -Math.PI / 2);
-  const awn = textTex([''], { w: 256, h: 64 }); const ax = awn.image.getContext('2d'); for (let i = 0; i < 8; i++) { ax.fillStyle = i % 2 ? '#e8dcc0' : '#6a1a14'; ax.fillRect(i * 32, 0, 32, 64); } awn.needsUpdate = true;
+  plane(1.7, 0.45, signMat(textTex([['TICKETS', 70], ['SPIRIT SCARE CO.', 22, "'Special Elite', monospace"]], { w: 512, h: 140, bg: '#2a2622', color: '#b5aa92', grime: 30, pad: 0.3, wear: 700 })), 18.27, 2.0, 31.2, -Math.PI / 2);
+  const awn = textTex([''], { w: 256, h: 64 }); const ax = awn.image.getContext('2d'); for (let i = 0; i < 8; i++) { ax.fillStyle = i % 2 ? '#3a3531' : '#2a2522'; ax.fillRect(i * 32, 0, 32, 64); } awn.needsUpdate = true;
   plane(1.7, 0.55, stdMat({ map: awn, side: T.DoubleSide, roughness: 0.9 }), 18.1, 2.25, 31.2, -Math.PI / 2, -0.6);
   const boothBulb = new T.Mesh(new T.SphereGeometry(0.05, 8, 6), MAT.warmBulb); boothBulb.position.set(19.2, 2.2, 31.2); REGION.yard.add(boothBulb);
   addLight(19.0, 2.0, 31.2, 0xffb070, 0.8, 4.5, 'bulb', 'yard', [MAT.warmBulb]);
@@ -1966,7 +2006,6 @@ function buildWorld() {
   sbox('hay', 1.1, 0.55, 0.6, 10.6, 0.28, 29.6, 0.2); sbox('hay', 1.1, 0.55, 0.6, 10.8, 0.83, 29.7, -0.1); collider(10.0, 29.2, 11.3, 30.05);
   sbox('hay', 1.1, 0.55, 0.6, 19.0, 0.28, 24.2, -0.3); collider(18.4, 23.8, 19.6, 24.6);
   sbox('darkWood', 1.4, 0.06, 0.4, 6.5, 0.45, 21.0); sbox('iron', 0.05, 0.45, 0.4, 5.9, 0.22, 21.0); sbox('iron', 0.05, 0.45, 0.4, 7.1, 0.22, 21.0); sbox('darkWood', 1.4, 0.4, 0.04, 6.5, 0.75, 20.82); collider(5.75, 20.75, 7.25, 21.25);
-  buildSkeleton(6.7, 0.48, 21.05, 0, true);
   // fence + gate
   for (let z = 19; z <= 38; z++) for (const x of [0, 29]) fenceSeg(x + 0.5, z, x + 0.5, z + 1);
   for (let x = 0; x < 29; x++) fenceSeg(x, 38.5, x + 1, 38.5, x === 14 || x === 15);
@@ -2005,7 +2044,7 @@ function buildWorld() {
   REG = 'house';
   // foyer
   sbox2('darkWood', 16.4, 0, 12.6, 18.7, 1.0, 13.4); sbox2('wood', 16.35, 1.0, 12.55, 18.75, 1.06, 13.45); collider(16.35, 12.55, 18.75, 13.45);
-  plane(1.6, 0.32, signMat(textTex([['CHECK-IN', 54], ['SPIRIT SCARE CO.  ·  STAFF WILL GUIDE YOU', 18, "'Special Elite', monospace"]], { w: 512, h: 110, bg: '#1a1410', color: '#e0782a', pad: 0.3 })), 17.55, 0.7, 13.41);
+  plane(1.6, 0.32, signMat(textTex([['CHECK-IN', 54], ['SPIRIT SCARE CO.', 18, "'Special Elite', monospace"]], { w: 512, h: 110, bg: '#1a1410', color: '#9c917c', pad: 0.3, wear: 400 })), 17.55, 0.7, 13.41);
   scyl('brass', 0.07, 0.09, 0.03, 10, 16.9, 1.075, 12.95); scyl('brass', 0.01, 0.01, 0.35, 6, 16.9, 1.24, 12.95);
   const shade = new T.Mesh(new T.CylinderGeometry(0.06, 0.16, 0.12, 12, 1, true), MAT.lampShade); shade.position.set(16.9, 1.42, 12.95); REGION.house.add(shade);
   addLight(16.9, 1.3, 13.2, 0xffc078, 0.6, 3.5, 'bulb', 'spirit', [MAT.lampShade]);
@@ -2025,13 +2064,12 @@ function buildWorld() {
   scyl('darkWood', 0.025, 0.03, 1.75, 6, 18.45, 0.88, 17.4); scyl('darkWood', 0.2, 0.2, 0.03, 10, 18.45, 0.02, 17.4);
   batch('blackCloth', xform(new T.CapsuleGeometry(0.17, 0.9, 4, 8), 18.35, 1.08, 17.4, 0.06, 0, 0.05)); ssph('blackCloth', 0.15, 18.4, 1.72, 17.38, [1, 0.8, 1]);
   collider(18.2, 17.15, 18.7, 17.65);
-  const arrowTex = (dir) => { const t = textTex([['THIS WAY', 46]], { w: 512, h: 128, bg: '#120c08', color: '#e0782a', pad: 0.2, wear: 400 }); const x = t.image.getContext('2d'); x.fillStyle = '#e0782a'; x.beginPath(); if (dir > 0) { x.moveTo(420, 96); x.lineTo(500, 64); x.lineTo(420, 32); } else { x.moveTo(92, 96); x.lineTo(12, 64); x.lineTo(92, 32); } x.fill(); t.needsUpdate = true; return t; };
-  plane(1.0, 0.25, signMat(arrowTex(1), 0x2a1406), 12.6, 1.75, 12.02); plane(1.0, 0.25, signMat(arrowTex(-1), 0x2a1406), 16.4, 1.75, 12.02);
-  plane(0.9, 0.24, signMat(textTex([['STAFF ONLY', 56]], { w: 512, h: 128, bg: '#7a1810', color: '#efe4cc', pad: 0.2 })), 18.98, 2.55, 15.5, -Math.PI / 2);
+  const arrowTex = (dir) => { const t = textTex([['THIS WAY', 46, "'Special Elite', monospace"]], { w: 512, h: 128, bg: '#bdb4a2', color: '#1c1915', grime: 25, pad: 0.2 }); const x = t.image.getContext('2d'); x.fillStyle = '#1c1915'; x.beginPath(); if (dir > 0) { x.moveTo(420, 96); x.lineTo(500, 64); x.lineTo(420, 32); } else { x.moveTo(92, 96); x.lineTo(12, 64); x.lineTo(92, 32); } x.fill(); t.needsUpdate = true; return t; };
+  plane(0.6, 0.15, signMat(arrowTex(1)), 12.6, 1.6, 12.02); plane(0.6, 0.15, signMat(arrowTex(-1)), 16.4, 1.6, 12.02);
+  plane(0.9, 0.24, signMat(textTex([['STAFF ONLY', 56]], { w: 512, h: 128, bg: '#3e1814', color: '#bfb39c', grime: 20, pad: 0.2, wear: 300 })), 18.98, 2.55, 15.5, -Math.PI / 2);
   sbox('metal', 0.3, 0.42, 0.25, 18.72, 2.7, 12.32);
   plane(3.2, 4.2, MAT.rugMat, 14.5, 0.006, 14.9, 0, -Math.PI / 2);
   webCorner(10.35, 12.35, 3.2, Math.PI * 0.25); webCorner(18.65, 12.35, 3.2, -Math.PI * 0.25);
-  for (const [bx, bz] of [[13.2, 13.6], [15.9, 16.2], [12.4, 15.5]]) { const bat = new T.Mesh(new T.ConeGeometry(0.14, 0.05, 3), MAT.blackCloth); bat.position.set(bx, 2.6, bz); bat.rotation.set(Math.PI, rand(TAU), 0); bat.scale.set(1.6, 1, 0.6); REGION.house.add(bat); scyl('iron', 0.002, 0.002, 0.6, 3, bx, 2.9, bz); }
   addLight(14.5, 2.9, 17.7, 0xff2010, 0.75, 6, 'bulb', 'red', [MAT.redLamp]); sbox('redLamp', 0.25, 0.12, 0.12, 14.5, 2.95, 17.85);
   // hallway
   plane(1.2, 8.6, MAT.rugMat, 14.5, 0.007, 6.4, 0, -Math.PI / 2);
@@ -2045,7 +2083,7 @@ function buildWorld() {
     sbox('darkWood', 0.025, 0.48, 0.4, x, y, z);
   });
   srand = mulberry(1031);
-  plane(1.4, 0.56, signMat(textTex([['KEEP GOING...', 92]], { w: 1024, h: 256, color: '#7a0c06', drip: 26, font: "'Special Elite', monospace", pad: 0.6 })), 15.985, 1.5, 8.15, -Math.PI / 2);
+  plane(1.4, 0.56, signMat(textTex([['KEEP GOING...', 92]], { w: 1024, h: 256, color: '#3c1410', drip: 14, font: "'Special Elite', monospace", pad: 0.6 })), 15.985, 1.5, 8.15, -Math.PI / 2);
   sbox2('metal', 15.4, 0, 9.65, 15.85, 0.26, 10.0); collider(15.4, 9.65, 15.85, 10.0);
   W.fogMachine = new T.Vector3(15.55, 0.2, 9.8);
   sbox2('darkWood', 13.0, 0, 7.3, 13.4, 0.75, 7.9); collider(13.0, 7.3, 13.45, 7.9);
@@ -2112,7 +2150,7 @@ function buildWorld() {
   const tube = new T.Mesh(new T.BoxGeometry(1.2, 0.05, 0.12), MAT.coolTube); tube.position.set(22.5, 2.76, 15.5); REGION.house.add(tube);
   addLight(22.5, 2.5, 15.5, 0xdcefff, 1.0, 6, 'fluor', 'spirit', [MAT.coolTube]);
   addLight(20.4, 2.4, 15.5, 0xff2010, 0.7, 5, 'bulb', 'red', [MAT.redLamp]); sbox('redLamp', 0.12, 0.12, 0.25, 20.08, 2.5, 15.5);
-  plane(0.6, 0.85, signMat(textTex([['SPIRIT', 64], ['SCARE CO.', 44], ['SCARE SAFELY', 26, "'Special Elite', monospace"], ['1 · NEVER TOUCH A GUEST', 20, "'Special Elite', monospace"], ['2 · STAY IN CHARACTER', 20, "'Special Elite', monospace"], ['3 · THE CELLAR IS OFF LIMITS', 20, "'Special Elite', monospace"]], { w: 360, h: 512, bg: '#1b1310', color: '#e0782a', grime: 20, pad: 0.8, wear: 300 })), 20.02, 1.65, 13.95, Math.PI / 2);
+  plane(0.6, 0.85, signMat(textTex([['SPIRIT', 64], ['SCARE CO.', 44], ['SCARE SAFELY', 26, "'Special Elite', monospace"], ['1 · NEVER TOUCH A GUEST', 20, "'Special Elite', monospace"], ['2 · STAY IN CHARACTER', 20, "'Special Elite', monospace"], ['3 · THE CELLAR IS OFF LIMITS', 20, "'Special Elite', monospace"]], { w: 360, h: 512, bg: '#1b1714', color: '#9a8f78', grime: 30, pad: 0.8, wear: 600 })), 20.02, 1.65, 13.95, Math.PI / 2);
   scyl('metal', 0.015, 0.015, 1.7, 6, 24.3, 0.85, 16.9); scyl('metal', 0.015, 0.015, 1.7, 6, 24.3, 0.85, 17.75); scyl('metal', 0.015, 0.015, 0.9, 6, 24.3, 1.7, 17.32, Math.PI / 2);
   for (let i = 0; i < 4; i++) batch(pick(['blackCloth', 'plaid', 'burlap']), xform(new T.CapsuleGeometry(0.15, 0.95, 3, 8), 24.3 + rand(-0.05, 0.05), 1.0, 17.0 + i * 0.22, 0, rand(TAU), 0, [1, 1, 0.45]));
   collider(24.05, 16.8, 24.55, 17.85);
@@ -2329,12 +2367,12 @@ const GH = {
            transformed.z += cos(position.y * 5.0 + uTime * 1.9 + ang * 2.0) * 0.045 * w * (1.0 + uWind * 2.0) - uWind * w * w * 0.18;`);
       };
     };
-    const dressMat = new T.MeshStandardMaterial({ color: 0x8e979b, roughness: 1, transparent: true, opacity: 0.85, alphaMap: TX.tatter, side: T.DoubleSide, emissive: 0x10161a });
+    const dressMat = new T.MeshStandardMaterial({ color: 0x676c6b, roughness: 1, transparent: true, opacity: 0.78, alphaMap: TX.tatter, side: T.DoubleSide, emissive: 0x05080a });
     wave(dressMat, 1.25);
     const prof = [[0.42, 0.0], [0.4, 0.12], [0.33, 0.45], [0.25, 0.8], [0.17, 1.02], [0.145, 1.12], [0.16, 1.24], [0.185, 1.33], [0.155, 1.42], [0.06, 1.5], [0.0, 1.51]];
     const dress = new T.Mesh(new T.LatheGeometry(prof.map((p) => new T.Vector2(p[0], p[1])), 28), dressMat);
     dress.castShadow = true; g.add(dress);
-    const skin = new T.MeshStandardMaterial({ color: 0x8a9394, roughness: 0.7, transparent: true, emissive: 0x12171a });
+    const skin = new T.MeshStandardMaterial({ color: 0x777e7f, roughness: 0.75, transparent: true, emissive: 0x0a0e10 });
     const hairMat = new T.MeshStandardMaterial({ color: 0x050505, roughness: 0.9, alphaMap: TX.hair, transparent: true, side: T.DoubleSide, depthWrite: false });
     const capMat = new T.MeshStandardMaterial({ color: 0x070707, roughness: 0.95, transparent: true });
     this.faceMat = new T.MeshStandardMaterial({ map: TX.faceCalm, transparent: true, roughness: 0.6, emissiveMap: TX.faceCalm, emissive: 0xffffff, emissiveIntensity: 0.16, polygonOffset: true, polygonOffsetFactor: -2 });
@@ -2420,7 +2458,7 @@ const GH = {
     const camD = Math.hypot(this.pos.x - camera.position.x, this.pos.z - camera.position.z);
     const close = camD < 1.6 || this.mode === 'lunge';
     if (close !== this._close) { this._close = close; this.g.traverse((o) => { if (o.isMesh) o.castShadow = !close; }); }
-    this.faceMat.emissiveIntensity = this.mode === 'lunge' ? 0.55 : 0.16;
+    this.faceMat.emissiveIntensity = this.mode === 'lunge' ? 0.45 : 0.08;
     const wind = this.uni.uWind.value;
     this.hair.forEach((s) => { s.visible = !(s.userData.front && this.mode === 'lunge'); s.rotation.x = Math.sin(t * 1.8 + s.userData.ph) * 0.08 - wind * 0.6; s.rotation.z = Math.sin(t * 1.3 + s.userData.ph) * 0.06; });
     if (chance(dt * 0.8)) this.flick = rand(0.05, 0.14);
@@ -2502,9 +2540,14 @@ function recenter() {
   if (!GY.got) { P.pitch = 0; return; }
   deviceEuler(_de);
   GY.yawOff = P.yaw - _de.y;
-  GY.pitchOff = clamp(-_de.x, -1.1, 1.1);
+  GY.pitchOff = clamp(-_de.x, -1.45, 1.45);
 }
 
+function relevel() {
+  if (GY.active && GY.got) { deviceEuler(_de); GY.pitchOff = clamp(-_de.x, -1.45, 1.45); }
+  else P.pitch = 0;
+  if (typeof toast === 'function') toast('View', 'Levelled');
+}
 /* pointer input */
 function isUI(t) { return t.closest && t.closest('button, input, .screen, .paper'); }
 touchEl.addEventListener('pointerdown', (e) => {
@@ -2518,6 +2561,9 @@ touchEl.addEventListener('pointerdown', (e) => {
     knobEl.style.transform = 'translate(0,0)';
   } else if (IN.lookId === null) {
     IN.lookId = e.pointerId; IN.last.x = e.clientX; IN.last.y = e.clientY;
+    const now = performance.now();
+    if (touch && now - (IN.lastTap || 0) < 320 && Math.hypot(e.clientX - (IN.tapX || 0), e.clientY - (IN.tapY || 0)) < 40) { relevel(); IN.lastTap = 0; }
+    else { IN.lastTap = now; IN.tapX = e.clientX; IN.tapY = e.clientY; }
     if (!touch && !isMobile && canvas.requestPointerLock && !document.pointerLockElement) { try { const r = touchEl.requestPointerLock(); if (r && r.catch) r.catch(() => {}); } catch (err) {} }
   }
   try { touchEl.setPointerCapture(e.pointerId); } catch (err) {}
@@ -2604,6 +2650,27 @@ scene.add(flash); scene.add(flash.target);
 const fill = new T.PointLight(0xb8c4dc, 0.2, 3.4, 2); scene.add(fill);
 const POOL = [0, 1, 2, 3].map(() => { const l = new T.PointLight(0xffffff, 0, 6, 2); scene.add(l); return { l, src: null }; });
 const flashDir = new T.Vector3(0, 0, -1);
+/* dust drifting through the flashlight beam */
+const DUST_N = isMobile ? 480 : 760;
+const dustGeo = new T.BufferGeometry(), dSeed = new Float32Array(DUST_N * 3), dSize = new Float32Array(DUST_N);
+for (let i = 0; i < DUST_N; i++) { dSeed[i * 3] = Math.random(); dSeed[i * 3 + 1] = Math.random(); dSeed[i * 3 + 2] = Math.random(); dSize[i] = rand(0.5, 1.5); }
+dustGeo.setAttribute('position', new T.BufferAttribute(dSeed, 3)); dustGeo.setAttribute('aSize', new T.BufferAttribute(dSize, 1));
+const dustMat = new T.ShaderMaterial({
+  uniforms: { uCam: { value: new T.Vector3() }, uLP: { value: new T.Vector3() }, uLD: { value: new T.Vector3(0, 0, -1) }, uCos: { value: Math.cos(0.5) }, uOn: { value: 1 }, uTime: { value: 0 }, uBox: { value: 7 }, uScale: { value: 800 } },
+  transparent: true, depthWrite: false, blending: T.AdditiveBlending,
+  vertexShader: `attribute float aSize; uniform vec3 uCam, uLP, uLD; uniform float uCos, uOn, uTime, uBox, uScale; varying float vA;
+    void main(){
+      vec3 off = vec3(sin(uTime * 0.21 + position.y * 40.0) * 0.18, -uTime * 0.018, cos(uTime * 0.17 + position.x * 30.0) * 0.18);
+      vec3 w = uCam + (fract(position + (off - uCam) / uBox) - 0.5) * uBox;
+      vec3 d = w - uLP; float dist = length(d); float ca = dot(d / max(dist, 0.001), uLD);
+      float beam = smoothstep(uCos, mix(uCos, 1.0, 0.5), ca) * (1.0 - smoothstep(0.8, 6.0, dist)) * smoothstep(0.3, 0.7, dist);
+      vA = beam * uOn * (0.35 + 0.25 * sin(uTime * 2.0 + position.z * 60.0));
+      vec4 mv = modelViewMatrix * vec4(w, 1.0); gl_Position = projectionMatrix * mv;
+      gl_PointSize = aSize * uScale * 0.0045 / max(-mv.z, 0.1);
+    }`,
+  fragmentShader: `varying float vA; void main(){ float a = smoothstep(0.5, 0.0, length(gl_PointCoord - 0.5)) * vA; if (a < 0.003) discard; gl_FragColor = vec4(vec3(1.0, 0.94, 0.84) * a, a); }`,
+});
+const dust = new T.Points(dustGeo, dustMat); dust.frustumCulled = false; scene.add(dust);
 let poolT = 0;
 function n1(x) { const i = Math.floor(x), f = x - i, h = (n) => { const s = Math.sin(n * 127.1) * 43758.5453; return s - Math.floor(s); }, u = f * f * (3 - 2 * f); return h(i) * (1 - u) + h(i + 1) * u; }
 function groupOn(grp) {
@@ -2664,10 +2731,10 @@ function updateLights(dt, t) {
   });
   // ambient + moon
   const out = P.region === 'yard';
-  const hBase = out ? 0.26 : P.region === 'cellar' ? 0.035 : G.power === 'on' ? 0.09 : G.power === 'warm' ? 0.1 : 0.05;
+  const hBase = out ? 0.15 : P.region === 'cellar' ? 0.035 : G.power === 'on' ? 0.09 : G.power === 'warm' ? 0.1 : 0.05;
   hemi.intensity = damp(hemi.intensity, hBase + G.lightning * (out ? 1.4 : 0.45), 8, dt);
   hemi.color.setHex(G.power === 'red' && !out ? 0x8a5a5a : 0x6a7a98);
-  moonL.intensity = out ? 0.32 + G.lightning * 2.2 : G.lightning * 0.3;
+  moonL.intensity = out ? 0.22 + G.lightning * 2.2 : G.lightning * 0.3;
   G.lightning = Math.max(0, G.lightning - dt * 5);
 }
 function updateFlash(dt) {
@@ -2679,6 +2746,9 @@ function updateFlash(dt) {
   let on = G.light ? 1 : 0;
   if (G.flashOverride !== null) on = G.flashOverride;
   flash.intensity = damp(flash.intensity, 2.8 * on, 35, dt);
+  const du = dustMat.uniforms;
+  du.uCam.value.copy(camera.position); du.uLP.value.copy(flash.position); du.uLD.value.copy(flashDir);
+  du.uOn.value = flash.intensity / 2.8; du.uTime.value = gameTime; du.uScale.value = rt.height; du.uCos.value = Math.cos(flash.angle);
   fill.position.copy(camera.position);
   fill.intensity = (P.region === 'cellar' ? 0.16 : 0.22) * (G.flashOverride === 0 ? 0.25 : 1);
 }
@@ -2709,9 +2779,15 @@ function circAABB(p, r, x0, z0, x1, z1) {
 function updatePlayer(dt) {
   const ctrl = G.state === 'play';
   if (GY.active && GY.got) {
-    GY.yawOff += IN.dYaw; IN.dYaw = 0; IN.dPitch = 0;
+    // Absolute yaw from the gyroscope, but pitch is measured from a "neutral" hold angle that
+    // slowly follows the player's hand. Holding the phone low (or letting your arm sag) drifts back
+    // to the horizon within a few seconds; deliberate looks up/down still register right away.
+    GY.yawOff += IN.dYaw; GY.pitchOff += IN.dPitch * 0.8; IN.dYaw = 0; IN.dPitch = 0;
     deviceEuler(_de);
-    view.yaw = _de.y + GY.yawOff; view.pitch = clamp(_de.x + GY.pitchOff, -1.45, 1.45); view.roll = _de.z;
+    const raw = _de.x, off = raw + GY.pitchOff;
+    const rate = SETTINGS.autoLevel === false ? 0 : Math.abs(off) < 0.35 ? 0.3 : Math.abs(off) < 0.8 ? 0.1 : 0.03;
+    GY.pitchOff -= off * (1 - Math.exp(-rate * dt));
+    view.yaw = _de.y + GY.yawOff; view.pitch = clamp(raw + GY.pitchOff, -1.35, 1.35); view.roll = _de.z * 0.55;
   } else {
     P.yaw += IN.dYaw; P.pitch = clamp(P.pitch + IN.dPitch, -1.3, 1.3); IN.dYaw = 0; IN.dPitch = 0;
     view.yaw = P.yaw; view.pitch = P.pitch; view.roll = 0;
@@ -2737,7 +2813,7 @@ function updatePlayer(dt) {
   const k = clamp(P.speed / 4, 0, 1.1);
   P.bob += P.speed * dt * (Math.PI / (P.running ? 0.95 : 0.72));
   const si = Math.floor(P.bob / Math.PI);
-  if (si !== stepIdx && P.speed > 0.3) { stepIdx = si; AU.footstep(surfaceOf(P.zone), new T.Vector3(P.x, 0.05, P.z), 0.35 + k * 0.5); }
+  if (si !== stepIdx && P.speed > 0.3) { stepIdx = si; AU.footstep(surfaceOf(P.zone), new T.Vector3(P.x, 0.05, P.z), 0.12 + k * 0.2); }
   const bobY = -Math.abs(Math.sin(P.bob)) * 0.045 * k * 1.6, bobX = Math.sin(P.bob * 0.5) * 0.02 * k, bobR = Math.sin(P.bob * 0.5) * 0.008 * k;
   G.shake = Math.max(0, G.shake - dt * 1.6);
   const sh = G.shake * G.shake;
@@ -2766,7 +2842,7 @@ function updateRegions(dt) {
   REGION.house.visible = r === 'house' || (r === 'yard' && P.z < 27);
   REGION.yard.visible = r === 'yard' || (r === 'house' && (P.zone === 'F' || (P.zone === 'H' && P.z > 8)));
   const red = G.power === 'red';
-  const fd = r === 'yard' ? 0.032 : r === 'cellar' ? 0.11 : red ? 0.085 : 0.07;
+  const fd = r === 'yard' ? 0.046 : r === 'cellar' ? 0.11 : red ? 0.085 : 0.07;
   scene.fog.density = damp(scene.fog.density, fd, 2, dt);
   _c1.setHex(r === 'yard' ? 0x0a0d13 : r === 'cellar' ? 0x070605 : red ? 0x0d0606 : 0x07080a);
   scene.fog.color.lerp(_c1, 1 - Math.exp(-2 * dt));
@@ -2776,10 +2852,10 @@ const _c1 = new T.Color();
 function updateLoops() {
   if (!AU.ok) return;
   const inside = P.region !== 'yard';
-  AU.loopGain('fire', P.region === 'house' ? 0.35 : 0, 0.5);
-  AU.loopGain('tick', P.region === 'house' && G.phase !== 5 ? 0.5 : 0, 0.5);
-  AU.loopGain('fog', G.phase <= 1 && P.region !== 'cellar' ? 0.12 : 0, 0.4);
-  AU.loopGain('buzz', G.power === 'on' && inside ? 0.05 : G.power === 'red' && inside ? 0.035 : 0, 0.2);
+  AU.loopGain('fire', P.region === 'house' ? 0.12 : 0, 0.8);
+  AU.loopGain('tick', P.region === 'house' && G.phase !== 5 ? 0.14 : 0, 0.8);
+  AU.loopGain('fog', G.phase <= 1 && P.region === 'house' ? 0.03 : 0, 0.8);
+  AU.loopGain('buzz', G.power === 'on' && inside ? 0.012 : G.power === 'red' && inside ? 0.01 : 0, 0.4);
 }
 
 /* ---------- doors ---------- */
@@ -2824,7 +2900,7 @@ function objectiveFor() {
   const f = G.flags;
   switch (G.phase) {
     case 0: return 'Go inside Hallowmere House.';
-    case 1: return 'Follow the orange arrows.';
+    case 1: return 'Follow the signs through the house.';
     case 2: return f.fuse ? 'Put the fuse back in the breaker.' : f.breakerChecked ? 'Someone pulled the main fuse. Find it.' : 'Get the lights back on. The breaker is in the staff room, off the foyer.';
     case 3: return f.key ? 'Unlock the cellar door in the kitchen.' : f.serviceTried || f.cellarTried ? 'The cellar leads out to the side yard. Find the cellar key.' : f.frontTried ? 'The front door won’t open. Try the kitchen’s service exit.' : 'Get out of the house.';
     case 4: return f.bulkheadTried ? 'Someone is humming behind the broken wall.' : 'Find the bulkhead door to the side yard, on the west wall.';
@@ -2986,7 +3062,7 @@ function storyTick(dt) {
       await st(1.2);
       if (DOOR.front.open > 0.2) { DOOR.front.target = 0; AU.creak(doorPos(DOOR.front), 0.9, 1.2, 0.5); }
       await st(1.0); DOOR.front.locked = true; AU.click(doorPos(DOOR.front), 0.7);
-      say('Welcome, mortal, to HALLOWMERE HOUSE! For your safety, the doors are now locked. Follow the arrows... if you dare!', 'Spirit Scare Co. · PA', 6);
+      say('Welcome to Hallowmere House. For your safety, doors lock behind you. Please keep to the marked route.', 'Spirit Scare Co. · PA', 6);
     });
   }
   if (G.phase === 1 && P.zone === 'H' && P.z < G.blackoutZ && !f.blackoutStarted) { f.blackoutStarted = true; script(blackoutSeq); }
@@ -3194,9 +3270,9 @@ function finalScare() {
    ============================================================ */
 const DIR = {
   next: 0, minorNext: 0, used: {},
-  reset() { this.next = gameTime + rand(16, 30); this.minorNext = gameTime + rand(4, 9); this.used = {}; },
+  reset() { this.next = gameTime + rand(16, 30); this.minorNext = gameTime + rand(12, 22); this.used = {}; },
 };
-const MEAN_GAP = { 0: 70, 1: 55, 2: 34, 3: 28, 4: 55, 6: 90 };
+const MEAN_GAP = { 0: 100, 1: 90, 2: 58, 3: 48, 4: 80, 6: 140 };
 function behindPoint(d, out) { return out.set(P.x + Math.sin(view.yaw) * d, 0, P.z + Math.cos(view.yaw) * d); }
 function aheadFree(maxD, minD) {
   const sx = -Math.sin(view.yaw), sz = -Math.cos(view.yaw); let last = 0;
@@ -3225,10 +3301,10 @@ const SCARES = [
 function directorTick(dt) {
   if (G.state !== 'play' || G.busy || G.chase || G.phase === 5) return;
   G.tension = clamp(G.tension + dt * (G.phase >= 2 ? 0.01 : 0.004), 0, 1);
-  if (gameTime > DIR.minorNext) { minorEvent(); DIR.minorNext = gameTime + rand(7, 18) * (G.phase >= 2 ? 1 : 1.4); }
+  if (gameTime > DIR.minorNext) { AU.soft = 0.45; try { minorEvent(); } finally { AU.soft = 1; } DIR.minorNext = gameTime + rand(18, 42) * (G.phase >= 2 ? 1 : 1.4); }
   if (gameTime < G.noScareUntil || gameTime < DIR.next) return;
   const pool = SCARES.filter((s) => s.ph.includes(G.phase) && gameTime - (DIR.used[s.id] ?? -999) > s.cd && s.can());
-  DIR.next = gameTime + clamp(expRand(MEAN_GAP[G.phase] || 40) * (1.2 - G.tension * 0.5), 16, 95);
+  DIR.next = gameTime + clamp(expRand(MEAN_GAP[G.phase] || 60) * (1.2 - G.tension * 0.4), 28, 130);
   if (!pool.length) { DIR.next = gameTime + 6; return; }
   let tw = pool.reduce((a, s) => a + s.w, 0), r = rand(tw), s = pool[0];
   for (const c of pool) { r -= c.w; if (r <= 0) { s = c; break; } }
@@ -3257,7 +3333,7 @@ function minorEvent() {
     if (distTo(10.4, 16.6) < 9 && G.phase >= 1) opts.push(() => AU.chime(W.clockPos, randi(1, 3)));
     if (P.zone === 'L' || P.zone === 'H') opts.push(() => AU.pianoNote(W.pianoPos, randi(40, 52), 0.35));
     if (P.zone === 'L' && chance(0.3)) opts.push(() => AU.gramophone(W.gramPos, 3));
-    if (G.phase >= 2) opts.push(() => doorDrift(), () => sheetShift());
+    if (G.phase >= 2) opts.push(() => doorDrift(), () => sheetShift(), () => { const a = rand(TAU); AU.hum(() => new T.Vector3(P.x + Math.cos(a) * 9, 3.6, P.z + Math.sin(a) * 9), 0.07, 1); });
   }
   if (r === 'cellar') opts.push(() => AU.drip(near(0, 4)), () => AU.drip(near(0, 6)), () => AU.rats(near(0, 5)), () => AU.creak(behind(), 0.8, 1.1, 0.5), () => footstepsAbove());
   if (opts.length) pick(opts)();
@@ -3590,7 +3666,7 @@ function fearTick(dt) {
     G.fear = damp(G.fear, f, 1.5, dt);
   }
   hbT -= dt;
-  if (G.fear > 0.32 && hbT <= 0) { hbT = 60 / (62 + G.fear * 95); AU.heartbeat(0.25 + G.fear * 0.55); }
+  if (G.fear > 0.5 && hbT <= 0) { hbT = 60 / (58 + G.fear * 70); AU.heartbeat(0.08 + G.fear * 0.22); }
   AU.ambience(P.region === 'yard', Math.max(G.tension, G.fear), P.region !== 'yard', dt);
 }
 function update(dt) {
@@ -3646,7 +3722,7 @@ function frame(now) {
 }
 
 /* ---------- menus ---------- */
-function syncToggles() { ['#tgGyro', '#tgGyro2'].forEach((s) => $(s).setAttribute('aria-pressed', String(SETTINGS.gyro))); ['#rgSens', '#rgSens2'].forEach((s) => ($(s).value = SETTINGS.sens)); ['#rgBright', '#rgBright2'].forEach((s) => ($(s).value = SETTINGS.bright)); $('#rgVol').value = SETTINGS.vol; }
+function syncToggles() { ['#tgGyro', '#tgGyro2'].forEach((s) => $(s).setAttribute('aria-pressed', String(SETTINGS.gyro))); $('#tgLevel').setAttribute('aria-pressed', String(SETTINGS.autoLevel !== false)); ['#rgSens', '#rgSens2'].forEach((s) => ($(s).value = SETTINGS.sens)); ['#rgBright', '#rgBright2'].forEach((s) => ($(s).value = SETTINGS.bright)); $('#rgVol').value = SETTINGS.vol; }
 function buildMenu() {
   const save = store.get('hallowmere.save');
   G.maxCp = (save && save.cp) || 1; G.notes = new Set((save && save.notes) || []);
@@ -3710,7 +3786,7 @@ function wireUI() {
   const use = $('#btnUse');
   use.addEventListener('pointerdown', (e) => { e.preventDefault(); e.stopPropagation(); IN.use = true; });
   $('#btnResume').addEventListener('click', resumeGame);
-  $('#btnRecenter').addEventListener('click', () => { recenter(); if (!GY.got) P.pitch = 0; resumeGame(); toast('View', 'Recentered'); });
+  $('#btnRecenter').addEventListener('click', () => { recenter(); if (!GY.got) P.pitch = 0; resumeGame(); toast('View', 'Levelled'); });
   $('#btnRestartCp').addEventListener('click', () => { $('#pause').hidden = true; if (AU.ctx) AU.ctx.resume(); applyCheckpoint(G.cp); G.state = 'play'; });
   $('#btnQuit').addEventListener('click', toTitle);
   $('#btnCloseNote').addEventListener('click', closeNote);
@@ -3723,9 +3799,10 @@ function wireUI() {
     else { GY.active = false; P.yaw = view.yaw; P.pitch = clamp(view.pitch, -1.3, 1.3); }
     GY.want = SETTINGS.gyro; updateMotionNote();
   };
+  $('#tgLevel').addEventListener('click', () => { SETTINGS.autoLevel = SETTINGS.autoLevel === false; saveSettings(); syncToggles(); });
   $('#tgGyro').addEventListener('click', tog); $('#tgGyro2').addEventListener('click', tog);
   const rng = (ids, key, after) => ids.forEach((id) => $(id).addEventListener('input', (e) => { SETTINGS[key] = parseFloat(e.target.value); saveSettings(); syncToggles(); if (after) after(); }));
-  rng(['#rgSens', '#rgSens2'], 'sens'); rng(['#rgBright', '#rgBright2'], 'bright'); rng(['#rgVol'], 'vol', () => { if (AU.master) AU.master.gain.value = SETTINGS.vol; });
+  rng(['#rgSens', '#rgSens2'], 'sens'); rng(['#rgBright', '#rgBright2'], 'bright'); rng(['#rgVol'], 'vol', () => { if (AU.master) AU.master.gain.value = 0.55 * SETTINGS.vol; });
   if (!isMobile) $('#fineprint').textContent = 'Headphones on, lights off. On a computer: WASD to walk, Shift to run, drag or click to look, E to interact, F for the flashlight.';
 }
 
